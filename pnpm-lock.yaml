@@ -100,9 +100,15 @@ importers:
 
   apps/web:
     dependencies:
+      '@repo/api':
+        specifier: workspace:^
+        version: link:../api
       '@repo/domain':
         specifier: workspace:*
         version: link:../../packages/domain
+      hono:
+        specifier: ^4.6.2
+        version: 4.6.2
       next:
         specifier: 14.2.6
         version: 14.2.6(react-dom@18.2.0)(react@18.2.0)
