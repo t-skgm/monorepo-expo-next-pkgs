@@ -6,9 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
+    "start": "expo start",
+    "lint": "eslint --ext js,ts,tsx ."
   },
   "dependencies": {
     "@repo/ui": "workspace:^",
@@ -19,6 +18,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@types/react": "~18.2.45",
     "typescript": "~5.3.3"
   }

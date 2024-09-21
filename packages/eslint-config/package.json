@@ -4,7 +4,7 @@
   "private": true,
   "files": [
     "library.js",
-    "next.js",
+    "react.js",
     "react-internal.js"
   ],
   "devDependencies": {
