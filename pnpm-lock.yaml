@@ -20,6 +20,9 @@ importers:
 
   apps/native:
     dependencies:
+      '@repo/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
       expo:
         specifier: ~51.0.28
         version: 51.0.32(@babel/core@7.25.2)(@babel/preset-env@7.25.4)
