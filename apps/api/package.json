@@ -1,19 +1,29 @@
 {
-  "name": "api",
+  "name": "@repo/api",
+  "exports": {
+    "default": "./src/index.ts"
+  },
   "scripts": {
-    "dev": "wrangler dev src/index.ts",
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:serve": "wrangler dev src/index.ts",
+    "dev:type": "tsup --watch --dts-only --silent",
     "deploy": "wrangler deploy --minify src/index.ts",
     "lint": "eslint --ext js,ts,tsx ."
   },
   "type": "module",
   "dependencies": {
+    "@hono/zod-validator": "^0.2.2",
     "@repo/domain": "workspace:^",
-    "hono": "^4.6.2"
+    "hono": "^4.6.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240529.0",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "eslint": "^8.57.0",
+    "npm-run-all2": "^6.2.3",
+    "tsup": "^6.5.0",
     "typescript": "~5.3.3",
     "wrangler": "^3.57.2"
   }
