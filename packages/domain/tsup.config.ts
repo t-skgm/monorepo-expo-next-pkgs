@@ -5,5 +5,6 @@ export default defineConfig({
   outDir: "build",
   sourcemap: true,
   dts: true,
+  format: ["cjs", "esm"],
   external: ["react", "react-native"],
 });

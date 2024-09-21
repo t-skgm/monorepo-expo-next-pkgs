@@ -6,6 +6,7 @@
     "dev": "turbo dev",
     "dev:native": "turbo dev --filter=\"{./apps/native}...\"",
     "dev:web": "turbo dev --filter=\"{./apps/web}...\"",
+    "dev:api": "turbo dev --filter=\"{./apps/api}...\"",
     "lint": "turbo lint",
     "test": "turbo test",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""

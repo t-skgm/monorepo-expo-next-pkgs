@@ -1,0 +1,20 @@
+{
+  "name": "api",
+  "scripts": {
+    "dev": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy --minify src/index.ts",
+    "lint": "eslint --ext js,ts,tsx ."
+  },
+  "type": "module",
+  "dependencies": {
+    "@repo/domain": "workspace:^",
+    "hono": "^4.6.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240529.0",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "~5.3.3",
+    "wrangler": "^3.57.2"
+  }
+}
