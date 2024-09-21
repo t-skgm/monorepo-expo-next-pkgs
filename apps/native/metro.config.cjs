@@ -1,21 +1,28 @@
 // Learn more https://docs.expo.io/guides/customizing-metro
 const { getDefaultConfig } = require("expo/metro-config");
 const path = require("path");
+const { FileStore } = require("metro-cache");
 
-// Find the project and workspace directories
 const projectRoot = __dirname;
-// This can be replaced with `find-yarn-workspace-root`
-const monorepoRoot = path.resolve(projectRoot, "../..");
+const workspaceRoot = path.resolve(projectRoot, "../..");
 
 /** @type {import('expo/metro-config').MetroConfig} */
 const config = getDefaultConfig(projectRoot);
 
-// 1. Watch all files within the monorepo
-config.watchFolders = [monorepoRoot];
-// 2. Let Metro know where to resolve packages and in what order
+// Since we are using pnpm, we have to setup the monorepo manually for Metro
+// #1 - Watch all files in the monorepo
+config.watchFolders = [workspaceRoot];
+// #2 - Try resolving with project modules first, then workspace modules
 config.resolver.nodeModulesPaths = [
   path.resolve(projectRoot, "node_modules"),
-  path.resolve(monorepoRoot, "node_modules"),
+  path.resolve(workspaceRoot, "node_modules"),
+];
+
+// Use turborepo to restore the cache when possible
+config.cacheStores = [
+  new FileStore({
+    root: path.join(projectRoot, "node_modules", ".cache", "metro"),
+  }),
 ];
 
 module.exports = config;
