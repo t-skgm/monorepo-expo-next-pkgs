@@ -14,5 +14,5 @@ pnpm dev:web
 pnpm dev:native
 
 # or Start only Hono api
-pnpm dev:native
+pnpm dev:api
 ```
